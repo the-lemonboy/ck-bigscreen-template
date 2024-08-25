@@ -1,7 +1,7 @@
 module.exports = {
   root: true, // 表示当前目录即为根目录，ESLint 规则将被限制到该目录下
   env: { browser: true, es2020: true, node: true },
-  parser: 'vue-eslint-parser', 
+  parser: 'vue-eslint-parser',
   /* 解析器 */
   parserOptions: {
     ecmaVersion: 'latest',
@@ -29,13 +29,7 @@ module.exports = {
     'plugin:vue/essential',
   ],
   /* ESLint文件所依赖的插件 */
-  plugins: [
-    'prettier',
-    'vue',
-    'html',
-    'import',
-    'unused-imports',
-  ],
+  plugins: ['prettier', 'vue', 'html', 'import', 'unused-imports'],
   /**
    * 定义规则
    * "off" 或 0 - 关闭规则
@@ -50,6 +44,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'space-before-function-paren': 'off',
     'class-methods-use-this': 'off',
+    'vue/multi-word-component-names': 'off',
 
     'import/first': 'warn',
     'import/newline-after-import': 'warn',

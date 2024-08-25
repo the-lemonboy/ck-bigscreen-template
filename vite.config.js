@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 
 import vue from '@vitejs/plugin-vue';
@@ -20,8 +21,15 @@ export default defineConfig({
         '/dev': {
           target: 'http://localhost:3000',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/dev/, ''),
+          rewrite: (paths) => paths.replace(/^\/dev/, ''),
         },
+      },
+    },
+    resolve: {
+      alias: {
+        '~@': path.join(__dirname, './src'),
+        '@': path.join(__dirname, './src'),
+        '~': path.join(__dirname, './src/assets'),
       },
     },
     css: {

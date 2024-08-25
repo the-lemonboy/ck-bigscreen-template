@@ -2,8 +2,10 @@
 // worker.start({ onUnhandledRequest: 'bypass' });
 import { createApp } from 'vue';
 
+import '@/styles/main.css';
+import '@/styles/tailwindcss.css';
+
 import App from './App.vue';
-import './assets/main.css';
 
 const app = createApp(App);
 
