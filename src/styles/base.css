@@ -1,3 +1,17 @@
 body {
   background:#020911;
 }
+@font-face {
+  font-family: 'ziticqtezhanti';
+  src: url('../assets/fonts/ziticqtezhanti.ttf');
+}
+.size {
+  font-family: 'ziticqtezhanti';
+}
+@font-face {
+  font-family: 'zhenyangb';
+  src: url('../assets/fonts/zhenyangb.ttf');
+}
+.size {
+  font-family: 'zhenyangb';
+}
