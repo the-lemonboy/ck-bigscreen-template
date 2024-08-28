@@ -25,4 +25,3 @@ import { getCurrentFormattedTime } from '@/utils/index';
 const currentDate = ref(getCurrentFormattedTime().split(' ')[0]);
 const currentTime = ref(getCurrentFormattedTime().split(' ')[1]);
 </script>
-<style scoped></style>

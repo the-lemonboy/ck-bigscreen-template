@@ -13,6 +13,9 @@ export default {
         titleFont: ['ziticqtezhanti'],
         numberFont: ['zhenyangb'],
       },
+      backgroundImage: {
+        'first-bg': "url('./assets/first-bg.png')",
+      },
     },
   },
   plugins: [],

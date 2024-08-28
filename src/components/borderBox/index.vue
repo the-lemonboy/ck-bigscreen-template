@@ -137,13 +137,6 @@ const leFrameBox = ref(null);
 const getWidth = ref(converse(props.width, leFrameBox.value, 'width'));
 const getHeight = ref(converse(props.height, leFrameBox.value, 'height'));
 const getTitleHeight = ref(converse(props.titleHeight, leFrameBox.value, 'height'));
-
-// Refs for other data
-// const gradient = ref('gradient');
-// const mask = ref('mask');
-// const path = ref('path');
-
-// Watch for changes in props to update computed values
 watchEffect(() => {
   getWidth.value = converse(props.width, leFrameBox.value, 'width');
   getHeight.value = converse(props.height, leFrameBox.value, 'height');

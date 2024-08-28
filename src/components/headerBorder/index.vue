@@ -49,8 +49,8 @@
       <path
         filter="url(#filterId2)"
         fill="none"
-        :d="`M 0 ${getHeight - 30}  L ${getWidth / 2 - getTitleWidth / 2} ${getHeight - 30} ${getWidth / 2 - getTitleWidth / 2 + 30},${getHeight - 5}  ${getWidth / 2 + getTitleWidth / 2 - 30},${getHeight - 5} ${getWidth / 2 + getTitleWidth / 2},${getHeight - 30} ${getWidth},${getHeight - 30}`"
         :stroke="borderColor[0]"
+        :d="`M 0 ${getHeight - 30}  L ${getWidth / 2 - getTitleWidth / 2} ${getHeight - 30} ${getWidth / 2 - getTitleWidth / 2 + 30},${getHeight - 5}  ${getWidth / 2 + getTitleWidth / 2 - 30},${getHeight - 5} ${getWidth / 2 + getTitleWidth / 2},${getHeight - 30} ${getWidth},${getHeight - 30}`"
       ></path>
 
       <path
@@ -58,8 +58,8 @@
         mask="url(#mask)"
         filter="url(#filterId1)"
         fill="none"
-        :d="`M 0 ${getHeight - 30}  L ${getWidth / 2 - getTitleWidth / 2} ${getHeight - 30} ${getWidth / 2 - getTitleWidth / 2 + 30},${getHeight - 5}  ${getWidth / 2 + getTitleWidth / 2 - 30},${getHeight - 5} ${getWidth / 2 + getTitleWidth / 2},${getHeight - 30} ${getWidth},${getHeight - 30}`"
         stroke="#02D6B3"
+        :d="`M 0 ${getHeight - 30}  L ${getWidth / 2 - getTitleWidth / 2} ${getHeight - 30} ${getWidth / 2 - getTitleWidth / 2 + 30},${getHeight - 5}  ${getWidth / 2 + getTitleWidth / 2 - 30},${getHeight - 5} ${getWidth / 2 + getTitleWidth / 2},${getHeight - 30} ${getWidth},${getHeight - 30}`"
       ></path>
       <!-- <use x="5" y="10" xlink:href="rect1"></use> -->
       <!-- 左边四边形 -->
@@ -156,9 +156,5 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', throttle(updateDimensions, 1000));
 });
 
-// Watch for prop changes
 watch([() => props.width, () => props.height, () => props.titleWidth], updateDimensions);
-
-// Expose ref for template
-// const expose = { leTitleBox, getWidth, getHeight, getTitleWidth };
 </script>

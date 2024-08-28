@@ -1,6 +1,6 @@
 <template>
-  <borderBox class="p-2" :width="'1400px'" :height="'800px'">
-    <div id="map" style="height: 750px; width: 900px"></div>
+  <borderBox class="p-2" :width="'1400px'" :height="'790px'">
+    <div id="map" style="height: 740px; width: 900px"></div>
     <popupBox
       v-show="showPopupFlag"
       id="custom"
