@@ -5,7 +5,7 @@
       :border-color="['rgba(90,137,193,1)', 'rgba(90,137,193,0.3)']"
       >水平条形图Demo</titleBorder
     >
-    <div class="bg-regal-blue my-4 flex w-full justify-start">
+    <div class="my-4 flex w-full justify-start bg-regal-blue">
       <div id="Bar-Chart_container"></div>
     </div>
   </div>
@@ -17,33 +17,30 @@ import { onMounted } from 'vue';
 import titleBorder from '@/components/titleBorder/index.vue';
 
 onMounted(() => {
+  const data = [
+    { year: '1951 年', sales: 38 },
+    { year: '1952 年', sales: 52 },
+    { year: '1956 年', sales: 61 },
+    { year: '1957 年', sales: 145 },
+    { year: '1958 年', sales: 48 },
+    { year: '1959 年', sales: 38 },
+    { year: '1960 年', sales: 38 },
+    { year: '1962 年', sales: 38 },
+  ];
+
   const chart = new Chart({
     container: 'Bar-Chart_container',
-    width: 300,
-    height: 300,
     autoFit: true,
+    height: 300,
+    width: 400,
   });
-
-  chart.coordinate({ transform: [{ type: 'transpose' }] });
 
   chart
     .interval()
-    .data({
-      type: 'fetch',
-      value: 'https://gw.alipayobjects.com/os/bmw-prod/fb9db6b7-23a5-4c23-bbef-c54a55fee580.csv',
-      format: 'csv',
-    })
-    .transform({ type: 'sortX', reverse: true })
-    .encode('x', 'letter')
-    .encode('y', 'frequency')
-    .axis('y', { labelFormatter: '.0%' })
-    .label({
-      text: 'frequency',
-      formatter: '.1%',
-      textAlign: (d) => (+d.frequency > 0.008 ? 'right' : 'start'),
-      fill: (d) => (+d.frequency > 0.008 ? '#fff' : '#000'),
-      dx: (d) => (+d.frequency > 0.008 ? -5 : 5),
-    });
+    .coordinate({ transform: [{ type: 'transpose' }] })
+    .data(data)
+    .encode('x', 'year')
+    .encode('y', 'sales');
 
   chart.render();
 });

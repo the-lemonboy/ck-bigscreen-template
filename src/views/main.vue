@@ -1,4 +1,5 @@
 <template>
+  <!-- <screenAdaptive :width="2560" :height="1080"> -->
   <div class="relative h-screen w-screen">
     <headerZone></headerZone>
     <!-- <div class="absolute left-4 top-40">
@@ -7,9 +8,9 @@
     <div class="absolute left-4 top-1/2">
       <sideLeftSecond :width="'200px'"></sideLeftSecond>
     </div> -->
-    <div class="absolute left-10 top-1/2 -translate-y-1/2">
+    <!-- <div class="absolute left-10 top-28">
       <centerContent></centerContent>
-    </div>
+    </div> -->
     <div class="absolute right-4 top-32">
       <sideRightFirst :width="'400px'"></sideRightFirst>
     </div>
@@ -17,6 +18,7 @@
       <sideRightSecond :width="'400px'"></sideRightSecond>
     </div>
   </div>
+  <!-- </screenAdaptive> -->
 </template>
 <script setup>
 import centerContent from './centerContent/index.vue';
