@@ -5,10 +5,12 @@
       v-show="showPopupFlag"
       id="custom"
       v-model="showPopupFlag"
+      class="mb-5"
       :height="'200px'"
       :width="'300px'"
-      :corner-color="['#ade8f4', '#ade8f4', '#ade8f4']"
+      :corner-color="['rgba(90,137,193,1)', 'rgba(90,137,193,1)', 'rgba(90,137,193,1)']"
       :background-color="'rgba(0,0,0,0.4)'"
+      :border-color="'rgba(90,137,193,1)'"
     >
       <div class="flex h-full w-full items-center justify-between">
         <div class="ml-5 flex h-3/4 flex-col justify-evenly text-base text-white">

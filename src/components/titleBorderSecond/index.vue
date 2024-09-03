@@ -23,9 +23,21 @@
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
-
+        <defs>
+          <filter id="filterId" height="150%" width="150%" x="-20%" y="-20%">
+            <feMorphology operator="dilate" radius="0.1" in="SourceAlpha" result="thicken" />
+            <feGaussianBlur in="thicken" stdDeviation="3" result="blurred" />
+            <feFlood :flood-color="borderColor[0]" result="glowColor" />
+            <feComposite in="glowColor" in2="blurred" operator="in" result="softGlowColored" />
+            <feMerge>
+              <feMergeNode in="softGlowColored" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
         <path
           id="pathD"
+          filter="url(#filterId)"
           :d="`M 0,0 L 15,${getHeight / 4} Q 30,${getHeight - 4} 70,${getHeight - 4} L ${getTitleWidth},${getHeight - 4}
       Q ${getTitleWidth + 35},${getHeight - 4} ${getTitleWidth + 45},${(getHeight * 5) / 6} 
       Q ${getTitleWidth + 60},${(getHeight * 2) / 3} ${getTitleWidth + 90},${(getHeight * 2) / 3} L ${(getWidth * 5) / 6},${(getHeight * 2) / 3}
@@ -68,7 +80,7 @@
       <path
         :stroke="borderColor[0]"
         :stroke-width="2"
-        :d="`M 0,0 L 5,${getHeight / 4} Q 25,${getHeight - 4} 70,${getHeight - 4} L ${getTitleWidth},${getHeight - 4}
+        :d="`M 0,0 L 5,${getHeight / 4} Q 20,${getHeight - 4} 70,${getHeight - 4} L ${getTitleWidth},${getHeight - 4}
       Q ${getTitleWidth + 35},${getHeight - 4} ${getTitleWidth + 45},${(getHeight * 5) / 6} 
       Q ${getTitleWidth + 60},${(getHeight * 2) / 3} ${getTitleWidth + 90},${(getHeight * 2) / 3} L ${(getWidth * 5) / 6},${(getHeight * 2) / 3}
       Q ${(getWidth * 5) / 6 + 35},${(getHeight * 2) / 3} ${(getWidth * 5) / 6 + 45},${(getHeight * 5) / 6}
