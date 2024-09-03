@@ -81,9 +81,9 @@
       height="20"
       @click="handleClose"
     >
-      <circle cx="10" cy="10" r="9" :stroke="borderColor" stroke-width="1" fill="none"></circle>
-      <line x1="6" y1="6" x2="14" y2="14" :stroke="borderColor" stroke-width="1" />
-      <line x1="6" y1="14" x2="14" y2="6" :stroke="borderColor" stroke-width="1" />
+      <circle cx="10" cy="10" r="9" :stroke="closeColor" stroke-width="1" fill="none"></circle>
+      <line x1="6" y1="6" x2="14" y2="14" :stroke="closeColor" stroke-width="1.5" />
+      <line x1="6" y1="14" x2="14" y2="6" :stroke="closeColor" stroke-width="1.5" />
     </svg>
     <div class="absolute left-0 top-0 h-full w-full">
       <slot></slot>
@@ -114,6 +114,10 @@ const props = defineProps({
   borderColor: {
     type: String,
     default: '#00B9FF',
+  },
+  closeColor: {
+    type: String,
+    default: '#ffffff',
   },
   cornerColor: {
     type: Array,

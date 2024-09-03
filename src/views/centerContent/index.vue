@@ -8,9 +8,9 @@
       class="mb-5"
       :height="'200px'"
       :width="'300px'"
-      :corner-color="['rgba(90,137,193,1)', 'rgba(90,137,193,1)', 'rgba(90,137,193,1)']"
+      :corner-color="['#A5CEF5', '#A5CEF5', '#A5CEF5']"
       :background-color="'rgba(0,0,0,0.4)'"
-      :border-color="'rgba(90,137,193,1)'"
+      :border-color="'#A5CEF5'"
     >
       <div class="flex h-full w-full items-center justify-between">
         <div class="ml-5 flex h-3/4 flex-col justify-evenly text-base text-white">
@@ -108,7 +108,7 @@ function initMap() {
         })
         .shape('cylinder')
         .size(16)
-        .color('red');
+        .color('blue');
       scene.addLayer(baseLayer);
       scene.addLayer(annotionLayer);
       scene.addLayer(nodesLayer.value);

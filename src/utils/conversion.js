@@ -33,16 +33,13 @@ export function converse(param, node, direction, ask) {
     pxValue = (number / 100) * viewportValue;
   } else if (unit === '%') {
     let theParentNodeValue = null;
-    if (param) {
-      pxValue = ask;
+    if (direction === 'width') {
+      theParentNodeValue = node.parentNode.offsetWidth;
     } else {
-      if (direction === 'width') {
-        theParentNodeValue = node.parentNode.offsetWidth;
-      } else {
-        theParentNodeValue = node.parentNode.offsetHeight;
-      }
-      pxValue = (theParentNodeValue * (number / 100)).toFixed(2);
+      theParentNodeValue = node.parentNode.offsetHeight;
     }
+    pxValue = (theParentNodeValue * (number / 100)).toFixed(2);
+    return pxValue;
   } else if (unit === 'px' || unit === '') {
     pxValue = number;
   }

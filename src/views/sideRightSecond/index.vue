@@ -20,7 +20,7 @@ onMounted(() => {
   const chart = new Chart({
     container: 'Fan-Chart_container',
     width: 380,
-    height: 300,
+    height: 320,
     theme: 'classicDark',
   });
 

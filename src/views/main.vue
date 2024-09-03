@@ -1,7 +1,6 @@
 <template>
-  <!-- <screenAdaptive :width="2560" :height="1080"> -->
-  <div class="relative h-screen w-screen bg-[url('../assets/bg/bg3.svg')]">
-    <headerZone></headerZone>
+  <div class="relative h-full w-full bg-[url('../assets/bg/bg3.svg')]">
+    <headerZone class="w-full"></headerZone>
     <div class="absolute left-10 top-28">
       <centerContent></centerContent>
     </div>
@@ -13,16 +12,13 @@
     </div>
     <div style="position: absolute; top: 500px; left: -520px">
       <decorateLineLeft
-        :background-color="'rgba(90,137,193,1)'"
+        :background-color="'#A5CEF5'"
         :width="'90vh'"
         :rotate="'true'"
       ></decorateLineLeft>
     </div>
     <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
-      <decorateLineFooter
-        :background-color="'rgba(90,137,193,1)'"
-        :width="'98vw'"
-      ></decorateLineFooter>
+      <decorateLineFooter :background-color="'#A5CEF5'" :width="'98vw'"></decorateLineFooter>
     </div>
   </div>
   <!-- </screenAdaptive> -->

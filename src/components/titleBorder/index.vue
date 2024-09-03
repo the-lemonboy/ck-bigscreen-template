@@ -99,7 +99,6 @@ const getHeight = ref('');
 const updateDimensions = () => {
   getWidth.value = converse(props.width, leTitleBox.value, 'width', 100);
   getHeight.value = converse(props.height, leTitleBox.value, 'height', 20);
-
 };
 
 // Refs for the component

@@ -40,7 +40,7 @@ onMounted(() => {
     container: 'Bar-Chart_container',
     autoFit: true,
     width: 380,
-    height: 300,
+    height: 320,
     theme: 'classicDark',
   });
 
