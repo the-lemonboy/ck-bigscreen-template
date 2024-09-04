@@ -189,18 +189,15 @@ const props = defineProps({
     default: 3,
   },
 });
-// Refs
+
 const leTitleBox = ref(null);
 const getWidth = ref(0);
 const getHeight = ref(0);
 
-// Functions
 const updateDimensions = () => {
   getWidth.value = converse(props.width, leTitleBox.value, 'width', 300);
   getHeight.value = converse(props.height, leTitleBox.value, 'height', 5);
 };
-
-// Lifecycle hooks
 onMounted(() => {
   updateDimensions();
   window.addEventListener('resize', throttle(updateDimensions, 1000));

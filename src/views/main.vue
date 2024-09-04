@@ -14,7 +14,7 @@
       <decorateLineLeft
         :background-color="'#A5CEF5'"
         :width="'90vh'"
-        :rotate="'true'"
+        :rotate="true"
       ></decorateLineLeft>
     </div>
     <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
