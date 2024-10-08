@@ -9,8 +9,6 @@
       <template #title>
         <div class="font-titleFont text-5xl tracking-widest text-white">城勘大屏模版</div>
       </template>
-
-      
       <template #timer>
         <div class="relative">
           <div class="flex h-full flex-col items-center justify-center">
