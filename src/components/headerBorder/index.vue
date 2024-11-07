@@ -145,7 +145,7 @@ const updateDimensions = () => {
   getHeight.value = converse(props.height, leTitleBox.value, 'height', 20);
   getTitleWidth.value = converse(props.titleWidth, leTitleBox.value, 'width', 50);
 };
-
+debugger;
 // Lifecycle hooks
 onMounted(() => {
   updateDimensions();
