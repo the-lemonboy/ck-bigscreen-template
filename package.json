@@ -8,7 +8,15 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --cache --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "@antv/g2": "^5.2.3",
@@ -16,6 +24,8 @@
     "@antv/l7-district": "^2.3.12",
     "@antv/l7-maps": "^2.22.1",
     "axios": "^1.7.4",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.6",
     "vue": "^3.4.29"
   },
   "devDependencies": {
@@ -40,6 +50,13 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.10",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "stylelint": "^16.8.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
+    "stylelint-order": "^6.0.4",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.8"
   }
 }

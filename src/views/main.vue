@@ -11,15 +11,11 @@
       <sideRightSecond :width="'400px'"></sideRightSecond>
     </div>
     <div style="position: absolute; top: 500px; left: -520px">
-      <decorateLineLeft
-        :background-color="'#A5CEF5'"
-        :width="'90vh'"
-        :rotate="true"
-      ></decorateLineLeft>
+      <decorateLineLeft :background-color="'#A5CEF5'" :width="'90vh'" :rotate="true"></decorateLineLeft>
     </div>
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
+    <!-- <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
       <decorateLineFooter :background-color="'#A5CEF5'" :width="'98vw'"></decorateLineFooter>
-    </div>
+    </div> -->
   </div>
   <!-- </screenAdaptive> -->
 </template>
@@ -31,8 +27,8 @@ import headerZone from './header/index.vue';
 import sideRightFirst from './sideRightFirst/index.vue';
 import sideRightSecond from './sideRightSecond/index.vue';
 
-const decorateLineFooter = defineAsyncComponent(
-  () => import('@/components/decorateLine/index.vue'),
-);
+// const decorateLineFooter = defineAsyncComponent(
+//   () => import('@/components/decorateLine/index.vue'),
+// );
 const decorateLineLeft = defineAsyncComponent(() => import('@/components/decorateLine/index.vue'));
 </script>

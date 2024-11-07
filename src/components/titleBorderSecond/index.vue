@@ -139,7 +139,9 @@ const updateDimensions = () => {
 const leTitleBox = ref(null);
 
 onMounted(() => {
-  updateDimensions();
+  setTimeout(() => {
+    updateDimensions();
+  });
   window.addEventListener('resize', throttle(updateDimensions, 1000));
 });
 

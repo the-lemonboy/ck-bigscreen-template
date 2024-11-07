@@ -12,9 +12,7 @@
       <template #timer>
         <div class="relative">
           <div class="flex h-full flex-col items-center justify-center">
-            <div class="text-l font-numberFont tracking-widest text-blue-200">{{
-              currentDate
-            }}</div>
+            <div class="text-l font-numberFont tracking-widest text-blue-200">{{ currentDate }}</div>
             <div class="font-numberFont text-xl tracking-widest text-white">{{ currentTime }}</div>
           </div>
           <svg

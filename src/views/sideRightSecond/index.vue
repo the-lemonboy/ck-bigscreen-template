@@ -1,9 +1,7 @@
 <template>
   <div class="relative">
-    <titleBorder
-      :border-color="['rgba(90,137,193,1)', 'rgba(90,137,193,0.3)']"
-      class="text-xl font-bold text-white"
-      >饼图Demo</titleBorder
+    <titleBorder :border-color="['rgba(90,137,193,1)', 'rgba(90,137,193,0.3)']" class="text-xl font-bold text-white">
+      饼图Demo</titleBorder
     >
     <div class="my-4 flex w-full justify-center bg-regal-blue">
       <div id="Fan-Chart_container"></div>

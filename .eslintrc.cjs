@@ -1,6 +1,10 @@
 module.exports = {
   root: true, // 表示当前目录即为根目录，ESLint 规则将被限制到该目录下
-  env: { browser: true, es2020: true, node: true },
+  env: {
+    browser: true,
+    es2020: true,
+    node: true,
+  },
   parser: 'vue-eslint-parser',
   /* 解析器 */
   parserOptions: {
@@ -26,7 +30,7 @@ module.exports = {
     'plugin:import/warnings',
     'prettier', // 增加 prettier 相关的校验规则
     'plugin:prettier/recommended', // 开启 Prettier 插件推荐的规则
-    'plugin:vue/essential',
+    'plugin:vue/essential'
   ],
   /* ESLint文件所依赖的插件 */
   plugins: ['prettier', 'vue', 'html', 'import', 'unused-imports'],
@@ -37,7 +41,8 @@ module.exports = {
    * "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
    */
   rules: {
-    'no-console': 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn' ,
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-unused-vars': 'off',
     'no-case-declarations': 'off',
     'no-use-before-define': 'off',
@@ -51,6 +56,13 @@ module.exports = {
     'import/no-duplicates': 'warn',
     'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
+    'vue/first-attribute-linebreak': [
+      'error',
+      {
+        singleline: 'beside', // 如果标签在同一行，属性无需换行
+        multiline: 'below', // 如果是多行，要求第一个属性换行
+      },
+    ],
     'import/order': [
       'warn',
       {
@@ -80,16 +92,25 @@ module.exports = {
         'newlines-between': 'always', // 在组之间插入空行
         pathGroupsExcludedImportTypes: ['sibling', 'index'],
         warnOnUnassignedImports: true,
-        alphabetize: { order: 'asc', caseInsensitive: true }, // 对于每个组，按字母表顺序排序。
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        }, // 对于每个组，按字母表顺序排序。
       },
     ],
 
     'unused-imports/no-unused-imports': 'warn',
     'unused-imports/no-unused-vars': [
       'warn',
-      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+      {
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+      },
     ],
-
-    'prettier/prettier': 'warn',
+    'prettier/prettier': 'error',
+    'arrow-body-style': 'off',
+    'prefer-arrow-callback': 'off',
   },
 };
