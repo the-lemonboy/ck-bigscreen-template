@@ -123,19 +123,15 @@ const props = defineProps({
   },
 });
 
-// Refs for calculated dimensions
-const getWidth = ref();
-const getHeight = ref();
-const getTitleWidth = ref();
-
-// Function to update dimensions
+const getWidth = ref(0);
+const getHeight = ref(0);
+const getTitleWidth = ref(0);
 const updateDimensions = () => {
   getWidth.value = converse(props.width, leTitleBox.value, 'width', 100);
   getHeight.value = converse(props.height, leTitleBox.value, 'height', 20);
   getTitleWidth.value = converse(props.titleWidth, leTitleBox.value, 'width', 50);
 };
 
-// Refs for the component
 const leTitleBox = ref(null);
 
 onMounted(() => {

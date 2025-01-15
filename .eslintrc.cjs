@@ -30,7 +30,7 @@ module.exports = {
     'plugin:import/warnings',
     'prettier', // 增加 prettier 相关的校验规则
     'plugin:prettier/recommended', // 开启 Prettier 插件推荐的规则
-    'plugin:vue/essential'
+    'plugin:vue/essential',
   ],
   /* ESLint文件所依赖的插件 */
   plugins: ['prettier', 'vue', 'html', 'import', 'unused-imports'],
@@ -41,7 +41,7 @@ module.exports = {
    * "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)
    */
   rules: {
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn' ,
+    'no-debugger': 'error',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-unused-vars': 'off',
     'no-case-declarations': 'off',

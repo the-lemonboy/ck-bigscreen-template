@@ -11,19 +11,10 @@
           <stop offset="100%" :stop-color="borderColor[0]" stop-opacity="0.5" />
         </linearGradient>
 
-        <animate
-          id="opacityId"
-          attributeName="fill-opacity"
-          values="0;1;0"
-          dur="5s"
-          repeatCount="indefinite"
-        />
+        <animate id="opacityId" attributeName="fill-opacity" values="0;1;0" dur="5s" repeatCount="indefinite" />
       </defs>
       <g>
-        <polygon
-          :fill="`url(#gradient1)`"
-          :points="`0,0 10,0 20,${getHeight} 10,${getHeight}`"
-        ></polygon>
+        <polygon :fill="`url(#gradient1)`" :points="`0,0 10,0 20,${getHeight} 10,${getHeight}`"></polygon>
         <!-- 右边框 -->
         <path
           :fill="`url(#gradient2)`"
@@ -35,23 +26,13 @@
           fill="#6EE2F4"
           :points="`${getWidth - 15},${getHeight / 2} ${getWidth - 25},${getHeight / 2 + 10} ${getWidth - 25},${getHeight / 2 + 5} ${getWidth - 20},${getHeight / 2} ${getWidth - 25},${getHeight / 2 - 5} ${getWidth - 25},${getHeight / 2 - 10}`"
         >
-          <animate
-            attributeName="fill-opacity"
-            values="1;0.2;1"
-            :dur="`${dur}s`"
-            repeatCount="indefinite"
-          />
+          <animate attributeName="fill-opacity" values="1;0.2;1" :dur="`${dur}s`" repeatCount="indefinite" />
         </polygon>
         <polygon
           fill="#ACF5F1"
           :points="`${getWidth - 25},${getHeight / 2} ${getWidth - 35},${getHeight / 2 + 10} ${getWidth - 35},${getHeight / 2 + 5} ${getWidth - 30},${getHeight / 2} ${getWidth - 35},${getHeight / 2 - 5} ${getWidth - 35},${getHeight / 2 - 10}`"
         >
-          <animate
-            attributeName="fill-opacity"
-            values="0.2;1;0.2"
-            :dur="`${dur}s`"
-            repeatCount="indefinite"
-          />
+          <animate attributeName="fill-opacity" values="0.2;1;0.2" :dur="`${dur}s`" repeatCount="indefinite" />
         </polygon>
       </g>
     </svg>
@@ -62,10 +43,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed } from 'vue';
 
 import { converse } from '@/utils/conversion';
-import { throttle } from '@/utils/throttle-debounce';
 
 // Props
 const props = defineProps({
@@ -91,25 +71,11 @@ const props = defineProps({
   },
 });
 
-// Refs for calculated dimensions
-const getWidth = ref('');
-const getHeight = ref('');
-
-// Function to update dimensions
-const updateDimensions = () => {
-  getWidth.value = converse(props.width, leTitleBox.value, 'width', 100);
-  getHeight.value = converse(props.height, leTitleBox.value, 'height', 20);
-};
-
-// Refs for the component
 const leTitleBox = ref(null);
-
-onMounted(() => {
-  updateDimensions();
-  window.addEventListener('resize', throttle(updateDimensions, 1000));
+const getWidth = computed(() => {
+  return converse(props.width, leTitleBox.value, 'width', 100);
 });
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', throttle(updateDimensions, 1000));
+const getHeight = computed(() => {
+  return converse(props.height, leTitleBox.value, 'height', 20);
 });
 </script>

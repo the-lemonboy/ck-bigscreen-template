@@ -1,8 +1,5 @@
 <template>
-  <div
-    ref="leDecorateLine"
-    class="relative h-full w-full"
-    :style="`width:${getWidth}px; height:${getHeight}px;`"
+  <div ref="leDecorateLine" class="relative h-full w-full" :style="`width:${getWidth}px; height:${getHeight}px;`"
     ><svg
       :transform="rotate ? 'rotate(90 50 50)' : ''"
       class="absolute left-0 top-0"
@@ -32,11 +29,7 @@
           </feMerge>
         </filter>
 
-        <path
-          id="pathD"
-          :d="`M 82,${getHeight / 2} L ${getWidth / 2 - 30},${getHeight / 2}`"
-          fill="transparent"
-        />
+        <path id="pathD" :d="`M 82,${getHeight / 2} L ${getWidth / 2 - 30},${getHeight / 2}`" fill="transparent" />
 
         <radialGradient id="gradient" cx="50%" cy="50%" r="50%">
           <stop offset="0%" :stop-color="borderColor[0]" stop-opacity="1" />
@@ -56,22 +49,10 @@
       </defs>
       <!-- 左边图形 -->
       <g>
-        <polygon
-          :fill="backgroundColor"
-          :points="`2,2 30,2 25,${getHeight - 2} 2,${getHeight - 2}`"
-        ></polygon>
-        <polygon
-          :fill="backgroundColor"
-          :points="`40,2 50,2 45,${getHeight - 2} 35,${getHeight - 2}`"
-        ></polygon>
-        <polygon
-          :fill="backgroundColor"
-          :points="`55,2 65,2 60,${getHeight - 2} 50,${getHeight - 2}`"
-        ></polygon>
-        <polygon
-          :fill="backgroundColor"
-          :points="`70,2 80,2 75,${getHeight - 2} 65,${getHeight - 2}`"
-        ></polygon>
+        <polygon :fill="backgroundColor" :points="`2,2 30,2 25,${getHeight - 2} 2,${getHeight - 2}`"></polygon>
+        <polygon :fill="backgroundColor" :points="`40,2 50,2 45,${getHeight - 2} 35,${getHeight - 2}`"></polygon>
+        <polygon :fill="backgroundColor" :points="`55,2 65,2 60,${getHeight - 2} 50,${getHeight - 2}`"></polygon>
+        <polygon :fill="backgroundColor" :points="`70,2 80,2 75,${getHeight - 2} 65,${getHeight - 2}`"></polygon>
       </g>
       <!-- 左边线段 -->
       <path
@@ -95,27 +76,9 @@
       ></path> -->
       <!-- 中间图形 -->
       <g>
-        <rect
-          :fill="backgroundColor"
-          :x="`${getWidth / 2 - 30}`"
-          y="2"
-          width="15"
-          :height="`${getHeight - 4}`"
-        ></rect>
-        <rect
-          :fill="backgroundColor"
-          :x="`${getWidth / 2 - 10}`"
-          y="2"
-          width="15"
-          :height="`${getHeight - 4}`"
-        ></rect>
-        <rect
-          :fill="backgroundColor"
-          :x="`${getWidth / 2 + 10}`"
-          y="2"
-          width="15"
-          :height="`${getHeight - 4}`"
-        ></rect>
+        <rect :fill="backgroundColor" :x="`${getWidth / 2 - 30}`" y="2" width="15" :height="`${getHeight - 4}`"></rect>
+        <rect :fill="backgroundColor" :x="`${getWidth / 2 - 10}`" y="2" width="15" :height="`${getHeight - 4}`"></rect>
+        <rect :fill="backgroundColor" :x="`${getWidth / 2 + 10}`" y="2" width="15" :height="`${getHeight - 4}`"></rect>
       </g>
       <!-- 右边线段 -->
       <line
@@ -149,10 +112,9 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
+import { ref, computed } from 'vue';
 
 import { converse } from '@/utils/conversion';
-import { throttle } from '@/utils/throttle-debounce';
 
 // Props
 const props = defineProps({
@@ -191,22 +153,11 @@ const props = defineProps({
 });
 
 const leTitleBox = ref(null);
-const getWidth = ref(0);
-const getHeight = ref(0);
-
-const updateDimensions = () => {
-  getWidth.value = converse(props.width, leTitleBox.value, 'width', 300);
-  getHeight.value = converse(props.height, leTitleBox.value, 'height', 5);
-};
-onMounted(() => {
-  updateDimensions();
-  window.addEventListener('resize', throttle(updateDimensions, 1000));
+const getWidth = computed(() => {
+  return converse(props.width, leTitleBox.value, 'width', 300);
 });
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', throttle(updateDimensions, 1000));
+const getHeight = computed(() => {
+  return converse(props.height, leTitleBox.value, 'height', 5);
 });
-
-watch([() => props.width, () => props.height, () => props.titleWidth], updateDimensions);
 </script>
 <style scoped></style>

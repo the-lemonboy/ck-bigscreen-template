@@ -104,10 +104,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
+import { ref, computed } from 'vue';
 
 import { converse } from '@/utils/conversion';
-import { throttle } from '@/utils/throttle-debounce';
 
 // Props
 const props = defineProps({
@@ -135,26 +134,13 @@ const props = defineProps({
 
 // Refs
 const leTitleBox = ref(null);
-const getWidth = ref(0);
-const getHeight = ref(0);
-const getTitleWidth = ref(0);
-
-// Functions
-const updateDimensions = () => {
-  getWidth.value = converse(props.width, leTitleBox.value, 'width', 300);
-  getHeight.value = converse(props.height, leTitleBox.value, 'height', 20);
-  getTitleWidth.value = converse(props.titleWidth, leTitleBox.value, 'width', 50);
-};
-debugger;
-// Lifecycle hooks
-onMounted(() => {
-  updateDimensions();
-  window.addEventListener('resize', throttle(updateDimensions, 1000));
+const getWidth = computed(() => {
+  return converse(props.width, leTitleBox.value, 'width', 300);
 });
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', throttle(updateDimensions, 1000));
+const getHeight = computed(() => {
+  return converse(props.height, leTitleBox.value, 'height', 20);
 });
-
-watch([() => props.width, () => props.height, () => props.titleWidth], updateDimensions);
+const getTitleWidth = computed(() => {
+  return converse(props.titleWidth, leTitleBox.value, 'width', 50);
+});
 </script>

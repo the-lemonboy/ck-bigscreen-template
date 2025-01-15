@@ -48,10 +48,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, defineProps } from 'vue';
+import { ref, defineProps, computed } from 'vue';
 
 import { converse } from '@/utils/conversion';
-import { throttle } from '@/utils/throttle-debounce';
 
 // 定义 props
 const props = defineProps({
@@ -79,21 +78,11 @@ const props = defineProps({
 
 // 定义 ref 和变量
 const leFrameBox = ref(null);
-const getWidth = ref(converse(props.width, leFrameBox.value, 'width'));
-const getHeight = ref(converse(props.height, leFrameBox.value, 'height'));
-console.log(getWidth.value, typeof getHeight.value);
-// 处理 resize 事件
-const handleResize = throttle(() => {
-  getWidth.value = converse(props.width, leFrameBox.value, 'width');
-  getHeight.value = converse(props.height, leFrameBox.value, 'height');
-}, 1000);
-
-onMounted(() => {
-  window.addEventListener('resize', handleResize);
+const getWidth = computed(() => {
+  return converse(props.width, leFrameBox.value, 'width');
 });
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize);
+const getHeight = computed(() => {
+  return converse(props.height, leFrameBox.value, 'height');
 });
 </script>
 <style scoped>
