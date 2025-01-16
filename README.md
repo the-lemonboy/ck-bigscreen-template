@@ -7,3 +7,4 @@
 * vue3
 * vite
 * tailwindcss
+* G2
